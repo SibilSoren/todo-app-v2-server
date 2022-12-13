@@ -19,7 +19,7 @@ const createUser = async (data, callback) => {
           if (error) {
             console.log(error);
             callback({
-              status: 1,
+              status: -1,
               message: "error creating user",
             });
           } else {
@@ -33,7 +33,7 @@ const createUser = async (data, callback) => {
     });
   } else {
     callback({
-      status: 1,
+      status: -2,
       message: "invalid user data",
     });
   }
