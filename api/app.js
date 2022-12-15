@@ -2,12 +2,19 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 const connectDB = require("../src/DB/ConnectDB");
+const cors = require("cors");
 const createUserRoute = require("../src/Routes/CreateUserRoute");
 dotenv.config();
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
 });
+
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN.TLD"); // update to match the domain you will make the request from
